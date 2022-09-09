@@ -25,3 +25,8 @@ app.post("/teams", (req, res) =>{
         res.redirect("/teams");
     });
 });
+
+
+// Listener
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log(`server is listening on port: ${PORT}`));
