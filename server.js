@@ -26,6 +26,20 @@ app.post("/teams", (req, res) =>{
     });
 });
 
+// HOME
+app.get("/", (req, res)=>{
+    res.send("Welcome");
+});
+
+
+// INDEX
+app.get("/teams", (req, res)=>{
+Team.find({}, (error, allTeams)=>{
+    res.render("index.ejs", {
+        teams: allTeams,
+        });
+    });
+});
 
 // Listener
 const PORT = process.env.PORT;
