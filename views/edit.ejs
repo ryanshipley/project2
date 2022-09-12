@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit</title>
+  </head>
+
+  <body>
+    <h1>Edit team</h1>
+   
+    <form action="/teams/<%=team.id%>?_method=PUT" method="POST">
+
+      <!--  NOTE: the form is pre-populated with values for the server-->
+      Name: <input type="text" name="name" value="<%=team.name%>" /><br />
+      Continent: <input type="text" name="continent" value="<%=team.continent%>" /><br />
+      Flag: <input type="text" name="flag" value="<%=team.flag%>"><br />
+      Capitol: <input type="text" name="capitol" value="<%=team.capitol%>"><br />
+      Population: <input type="number" name="population" value="<%=team.population%>"><br />
+      Rank: <input type="number" name="rank" value="<%=team.rank%>" /><br />
+      <br />
+      <input type="submit" value="Submit Changes" />
+    </form>
+  </body>
+</html>
