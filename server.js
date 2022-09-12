@@ -41,6 +41,26 @@ Team.find({}, (error, allTeams)=>{
     });
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+app.get("/teams/:id", (req, res)=>{
+Team.findById(req.params.id, (err, foundTeam) =>{
+    res.render("show.ejs",{
+        team: foundTeam,
+        });
+    });
+});
+
 // Listener
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`server is listening on port: ${PORT}`));
