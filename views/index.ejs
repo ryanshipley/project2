@@ -11,7 +11,7 @@
 <a href="/teams/new">Add new Team</a>
     <ul>
         <% teams.forEach(team => {%>
-        <li><a href="/teams/<%=team._id;%>"><img src=<%=team.flag%>></a></li>
+        <a href="/teams/<%=team._id;%>"><img src=<%=team.flag%>></a>
         <%})%>
     </ul>
 
