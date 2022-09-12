@@ -55,7 +55,13 @@ app.post("/teams", (req, res) =>{
     });
 });
 
-
+app.get("/teams/:id/edit", (req, res)=>{
+    Team.findById(req.params.id, (err, foundTeam)=>{
+        res.render("edit.ejs", {
+            team: foundTeam,
+        });
+    });
+});
 
 
 app.get("/teams/:id", (req, res)=>{
