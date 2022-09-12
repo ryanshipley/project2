@@ -39,7 +39,11 @@ app.get("/teams/new", (req, res) =>{
     res.render("new.ejs");
 });
 
-
+app.delete("/teams/:id", (req, res) =>{
+    Team.findByIdAndDelete(req.params.id, (err, data)=>{
+        res.redirect("/teams");
+    });
+});
 
 
 
