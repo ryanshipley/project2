@@ -19,12 +19,6 @@ db.on("disconnected", () => console.log("mongo disconnected"));
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
-// CREATE
-app.post("/teams", (req, res) =>{
-    Team.create(req.body, (error, createdTeam)=>{
-        res.redirect("/teams");
-    });
-});
 
 // HOME
 app.get("/", (req, res)=>{
@@ -34,9 +28,9 @@ app.get("/", (req, res)=>{
 
 // INDEX
 app.get("/teams", (req, res)=>{
-Team.find({}, (error, allTeams)=>{
-    res.render("index.ejs", {
-        teams: allTeams,
+    Team.find({}, (error, allTeams)=>{
+        res.render("index.ejs", {
+            teams: allTeams,
         });
     });
 });
@@ -50,6 +44,12 @@ app.get("/teams/new", (req, res) =>{
 
 
 
+// CREATE
+app.post("/teams", (req, res) =>{
+    Team.create(req.body, (error, createdTeam)=>{
+        res.redirect("/teams");
+    });
+});
 
 
 
