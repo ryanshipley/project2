@@ -35,18 +35,31 @@ app.get("/teams", (req, res)=>{
     });
 });
 
+// NEW
 app.get("/teams/new", (req, res) =>{
     res.render("new.ejs");
 });
 
+// DELETE
 app.delete("/teams/:id", (req, res) =>{
     Team.findByIdAndDelete(req.params.id, (err, data)=>{
         res.redirect("/teams");
     });
 });
 
-
-
+//UPDATE
+app.put("/teams/:id", (req, res) => {  
+	Team.findByIdAndUpdate(
+	  req.params.id,
+	  req.body,
+	  {
+		new: true,
+	  },
+	  (error, updatedTeam) => {
+		res.redirect(`/teams/${req.params.id}`);
+	  }
+	);
+  });
 
 // CREATE
 app.post("/teams", (req, res) =>{
@@ -55,6 +68,8 @@ app.post("/teams", (req, res) =>{
     });
 });
 
+
+// EDIT
 app.get("/teams/:id/edit", (req, res)=>{
     Team.findById(req.params.id, (err, foundTeam)=>{
         res.render("edit.ejs", {
@@ -63,7 +78,7 @@ app.get("/teams/:id/edit", (req, res)=>{
     });
 });
 
-
+// SHOW
 app.get("/teams/:id", (req, res)=>{
 Team.findById(req.params.id, (err, foundTeam) =>{
     res.render("show.ejs",{
