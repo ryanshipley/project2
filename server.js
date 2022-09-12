@@ -51,8 +51,6 @@ Team.find({}, (error, allTeams)=>{
 
 
 
-
-
 app.get("/teams/:id", (req, res)=>{
 Team.findById(req.params.id, (err, foundTeam) =>{
     res.render("show.ejs",{
