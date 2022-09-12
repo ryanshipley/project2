@@ -41,6 +41,9 @@ Team.find({}, (error, allTeams)=>{
     });
 });
 
+app.get("/teams/new", (req, res) =>{
+    res.render("new.ejs");
+});
 
 
 
