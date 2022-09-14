@@ -33,11 +33,6 @@ app.get("/teams", (req, res)=>{
         res.render("index.ejs", {
             teams: allTeams,
         });
-    }),
-    Player.find({}, (error, allPlayers)=>{
-        res.render("index.ejs", {
-            players: allPlayers,
-        });
     });
 });
 
@@ -94,6 +89,11 @@ app.get("/teams/:id", (req, res)=>{
 Team.findById(req.params.id, (err, foundTeam) =>{
     res.render("show.ejs",{
         team: foundTeam,
+        });
+    });
+    Player.find({}, (error, allPlayers)=>{
+        res.render("index.ejs", {
+            players: allPlayers,
         });
     });
 });
