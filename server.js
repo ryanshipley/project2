@@ -33,6 +33,11 @@ app.get("/teams", (req, res)=>{
         res.render("index.ejs", {
             teams: allTeams,
         });
+    }),
+    Player.find({}, (error, allPlayers)=>{
+        res.render("index.ejs", {
+            players: allPlayers,
+        });
     });
 });
 
