@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const Team = require("./models/team.js");
+const Player = require("./models/player.js");
 require("dotenv").config();
 const methodOverride = require("method-override");
 const db = mongoose.connection;
@@ -68,6 +69,11 @@ app.post("/teams", (req, res) =>{
     });
 });
 
+app.post("/players", (req, res)=>{
+    Player.create(req.body, (error, createdPlayer)=>{
+        res.redirect("/players");
+    });
+});
 
 // EDIT
 app.get("/teams/:id/edit", (req, res)=>{
