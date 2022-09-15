@@ -22,9 +22,9 @@ app.use(methodOverride("_method"));
 
 
 // HOME
-app.get("/", (req, res)=>{
-    res.send("Welcome");
-});
+// app.get("/", (req, res)=>{
+//     res.send("Welcome");
+// });
 
 
 // INDEX
