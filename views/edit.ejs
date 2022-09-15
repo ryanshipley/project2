@@ -9,7 +9,7 @@
 
   <body>
     <h1>Edit team</h1>
-   
+   <a href="/teams/<%=team.id%>">Return to <%=team.name%></a>
     <form action="/teams/<%=team.id%>?_method=PUT" method="POST">
 
       <!--  NOTE: the form is pre-populated with values for the server-->
