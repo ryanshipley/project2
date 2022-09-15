@@ -1,6 +1,6 @@
 <header>
     <div>
-        International Futbol <span><a href="/teams">Home</a></span>
+        International Futbol <span id="home"><a href="/teams">Home</a></span>
     </div>
     <div id="nav">
         <a href="/teams/Europe">Europe</a>
@@ -12,3 +12,28 @@
     </div>
 
 </header>
+<style>
+    header{
+        background-color: #36454F;
+        overflow: hidden;
+    }
+
+    #nav a{
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 75px;
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+    #nav a:hover{
+        background-color: #ddd;
+        color: black;
+    }
+
+    #nav a.active{
+        background-color: #04AA6D;
+        color:  white;
+    }
+</style>
