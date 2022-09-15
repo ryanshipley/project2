@@ -21,10 +21,10 @@ app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
 
-// HOME
-// app.get("/", (req, res)=>{
-//     res.send("Welcome");
-// });
+HOME
+app.get("/", (req, res)=>{
+    res.redirect("/teams");
+});
 
 
 // INDEX
