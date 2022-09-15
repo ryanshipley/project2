@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
 
-HOME
+//HOME
 app.get("/", (req, res)=>{
     res.redirect("/teams");
 });
