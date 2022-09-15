@@ -7,7 +7,7 @@
     <title>National Teams</title>
 </head>
 <body>
-    <h1>International Teams</h1>
+<%- include("./partials/header.ejs");%>
 <a href="/teams/new"><button>Add New Team</button></a>
     <ul>
         <% teams.forEach(team => {%>
