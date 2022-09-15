@@ -92,7 +92,7 @@ Team.findById(req.params.id, (err, foundTeam) =>{
         });
     });
     // Player.find({}, (error, allPlayers)=>{
-    //     res.render("index.ejs", {
+    //     res.render("show.ejs", {
     //         players: allPlayers,
     //     });
     // });

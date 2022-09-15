@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>International Teams</h1>
-<a href="/teams/new">Add new Team</a>
+<a href="/teams/new"><button>Add New Team</button></a>
     <ul>
         <% teams.forEach(team => {%>
         <a href="/teams/<%=team._id;%>"><img src=<%=team.flag%>></a>
