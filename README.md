@@ -8,6 +8,7 @@
 * Express
 * EJS
 * Mongoose/MongoDB
+* Node.js
 
 ## Screenshots
 ![index](images/Project2index.png)
