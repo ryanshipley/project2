@@ -7,6 +7,7 @@
 * JavaScript
 * Express
 * EJS
+* Postman
 * Mongoose/MongoDB
 * Node.js
 
