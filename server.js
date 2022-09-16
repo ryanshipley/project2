@@ -91,11 +91,6 @@ Team.findById(req.params.id, (err, foundTeam) =>{
         team: foundTeam,
         });
     });
-    // Player.find({}, (error, allPlayers)=>{
-    //     res.render("show.ejs", {
-    //         players: allPlayers,
-    //     });
-    // });
 });
 
 // Listener
