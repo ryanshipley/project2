@@ -27,7 +27,12 @@ app.get("/", (req, res)=>{
 });
 
 
-// INDEX
+/* INDEX
+@get sets the /teams route.
+@find {} finds all teams in the database.
+@render renders the index page.
+@teams all teams found defined as allTeams.
+*/
 app.get("/teams", (req, res)=>{
     Team.find({}, (error, allTeams)=>{
         res.render("index.ejs", {
@@ -36,19 +41,30 @@ app.get("/teams", (req, res)=>{
     });
 });
 
-// NEW
+/* NEW
+@get sets the /teams/new route.
+@render renderst the new team input page.
+*/
 app.get("/teams/new", (req, res) =>{
     res.render("new.ejs");
 });
 
-// DELETE
+/* DELETE
+@delete deletes the team with the matching id.
+@findByIdAndDelete finds the team with matching id and deletes them from the database.
+@redirect redirects the user to the index page.
+*/
 app.delete("/teams/:id", (req, res) =>{
     Team.findByIdAndDelete(req.params.id, (err, data)=>{
         res.redirect("/teams");
     });
 });
 
-//UPDATE
+/* UPDATE
+@put updates the team with the matching id.
+@findByIdAndUpdate find the team with matching id and updates their values.
+@redirect redirects the user back to the teams show page.
+*/
 app.put("/teams/:id", (req, res) => {  
 	Team.findByIdAndUpdate(
 	  req.params.id,
@@ -62,20 +78,30 @@ app.put("/teams/:id", (req, res) => {
 	);
   });
 
-// CREATE
+/* CREATE 
+Used with postman.
+@post posts the createdTeam into the database.
+@createdTeam the createdTeam.
+@redirect redirects the user to the index page.
+*/
 app.post("/teams", (req, res) =>{
     Team.create(req.body, (error, createdTeam)=>{
         res.redirect("/teams");
     });
 });
 
-app.post("/players", (req, res)=>{
-    Player.create(req.body, (error, createdPlayer)=>{
-        res.redirect("/players");
-    });
-});
+// app.post("/players", (req, res)=>{
+//     Player.create(req.body, (error, createdPlayer)=>{
+//         res.redirect("/players");
+//     });
+// });
 
-// EDIT
+/* EDIT
+@get edits the team with matching id. Sets the edit route.
+@findById finds the team with the matching id.
+@foundTeam the team found with the matching id.
+@render renders the edit page/form.
+*/
 app.get("/teams/:id/edit", (req, res)=>{
     Team.findById(req.params.id, (err, foundTeam)=>{
         res.render("edit.ejs", {
@@ -84,7 +110,12 @@ app.get("/teams/:id/edit", (req, res)=>{
     });
 });
 
-// SHOW
+/* SHOW
+@get sets the show route for each team. Uses matching id.
+@findById finds the team with the matching id.
+@foundTeam the team found to have the matching id.
+@render renderst the teams show page.
+*/
 app.get("/teams/:id", (req, res)=>{
 Team.findById(req.params.id, (err, foundTeam) =>{
     res.render("show.ejs",{
@@ -93,6 +124,9 @@ Team.findById(req.params.id, (err, foundTeam) =>{
     });
 });
 
-// Listener
+/* Listener
+@PORT the port the computer will listen for.
+@listen listens for the port and logs the message.
+*/
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`server is listening on port: ${PORT}`));
